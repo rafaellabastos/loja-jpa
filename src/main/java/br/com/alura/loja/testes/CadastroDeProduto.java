@@ -1,6 +1,8 @@
 package br.com.alura.loja.testes;
 
+import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.entity.Produto;
+import br.com.alura.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,8 +22,11 @@ public class CadastroDeProduto {
 
         EntityManager em = factory.createEntityManager();
 
+        EntityManager em = JPAUtil.getEntityManager();
+        ProdutoDao dao = new ProdutoDao(em);
+
         em.getTransaction().begin();
-        em.persist(celular);
+        dao.Cadastrar(celular);
         em.getTransaction().commit();
         em.close();
     }
