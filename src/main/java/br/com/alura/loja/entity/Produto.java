@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -30,4 +31,9 @@ public class Produto {
     @Column(name = "PRECO_PRODUTOS")
     private BigDecimal preço;
 
+    @Column(name = "DATACADASTRO_PRODUTOS")
+    private LocalDate dataCadastro = LocalDate.now();
+
+    @Column(name = "CATEGORIA_PRODUTOS")
+    private Categoria categoria;
 }
