@@ -20,7 +20,7 @@ public class CadastroDeProduto {
         //O atributo passado para persistir é o name do persistence-unit do .xml
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
 
-        EntityManager em = factory.createEntityManager();
+        //EntityManager em = factory.createEntityManager();
 
         EntityManager em = JPAUtil.getEntityManager();
         ProdutoDao dao = new ProdutoDao(em);
