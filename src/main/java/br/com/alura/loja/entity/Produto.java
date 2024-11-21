@@ -34,6 +34,6 @@ public class Produto {
     @Column(name = "DATACADASTRO_PRODUTOS")
     private LocalDate dataCadastro = LocalDate.now();
 
-    @Column(name = "CATEGORIA_PRODUTOS")
+    @ManyToOne
     private Categoria categoria;
 }

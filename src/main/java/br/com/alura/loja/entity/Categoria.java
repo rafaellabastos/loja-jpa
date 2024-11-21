@@ -1,9 +1,25 @@
 package br.com.alura.loja.entity;
 
-public enum Categoria {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    CELULARES,
-    INFORMATICA,
-    LIVROS;
+import javax.persistence.*;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "categorias")
+public class Categoria {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "NOME_PRODUTOS")
+    private String nome;
 
 }
