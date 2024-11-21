@@ -1,19 +1,28 @@
 package br.com.alura.loja.dao;
 
 import br.com.alura.loja.entity.Produto;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.EntityManager;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class ProdutoDao {
 
     private EntityManager em;
 
-    public void Cadastrar(Produto produto) {
+    public ProdutoDao(EntityManager em) {
+        this.em = em;
+    }
+
+    public void cadastrar(Produto produto) {
         this.em.persist(produto);
+    }
+
+    public void atualizar(Produto produto) {
+        this.em.merge(produto);
+    }
+
+    public void remover(Produto produto) {
+        produto = em.merge(produto);
+        this.em.remove(produto);
     }
 
 }
